@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <title>mein website</title>
+    <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <!--login seite-->
+        <form class="form" id="loginForm">
+         <input class="text" type="text" id="username" placeholder="Username" required>
+         <input class="password" type="password" id="password" placeholder="Password" required>
+         <input class="submit" type="submit" value="Login">
+        <p>Melden Sie sich bitte an!</p>
+        </form>
+        <!--Dashboard seite (versteckt)-->
+        <div id="dashboard" style="display: none;">
+           <h1>Willkommen</h1>
+           <img src="imeges/67.jpeg" alt="Dashboard Image" width="300px">
+           
+            <button onclick="logout()"></button>
+        </div>
+        
+        <script>
+            document.getElementById("loginForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+                const username = document.getElementById("username").value;
+                const passwword = document.getElementById("password").value;
+
+                if (username === "Hero" && passwword === "123456") {
+                    alert("login seccessful")
+                    document.getElementById("loginForm").style.display = "none";
+                    document.getElementById("dashboard").style.display = "block";
+                    
+                } else {
+                    alert("login failed")
+                }
+            });
+            function logout() {
+                document.getElementById("dashboard").style.display = "none";
+                document.getElementById("loginForm").style.display = "block";
+                document.getElementById("username").value = "";
+                document.getElementById("password").value = "";
+            }
+        </script>
+    </body>
+    
+
+
+</html>
